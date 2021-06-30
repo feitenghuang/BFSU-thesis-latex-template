@@ -1,0 +1,296 @@
+%模板说明
+
+%制作者：黄飞腾；制作时间：2021年5月；联系方式：huangfeiteng@bfsu.edu.cn
+
+%本latex模板适用于北京外国语大学学位论文。需要使用者具备基础的latex知识。运行前，需要预先把参考文献制作成bib文件，并在模板最后替换文件名。
+%本模板生成的论文为pdf格式，从致谢页开始，致谢页页码为 ii。生成pdf后，需要手动把封面和声明（由word模板制作，请按照要求制作电子签名）贴在前面，生成完整版论文。
+%本模板仅供参考，不保证格式的完全正确，请根据要求对各项细节进行核对修改。如果使用者的毕业年份中，对学位论文格式有新的要求，请根据具体要求修改相应格式，例如字体字号等。本模板中的图，表，参考文献等仅作为样例供参考。
+
+%本模板仅用于北外毕业生的学术论文写作，禁止用于任何商业用途。作者保留一切解释和追究的权利。
+
+
+\documentclass[12pt]{article} %12pt是4号 %ctexart会报错
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm} %proof环境在这个包里
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{bm}
+\usepackage{graphicx}
+%\usepackage{setspace}
+\usepackage{enumitem}
+\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt} %设置enumerate环境的行间距
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{graphicx,subfigure,amssymb,amsthm,amsbsy,float,natbib}
+\usepackage{epstopdf}
+\usepackage{color}
+\usepackage{soul}
+\usepackage{longtable}
+\usepackage{bm}
+\usepackage{rotating}
+\usepackage{subfigure}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{diagbox}
+\usepackage[fleqn]{amsmath}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{bm}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{longtable}
+\numberwithin{equation}{section} %???section??
+\newcommand{\ud}{\,\mathrm{d}}  %??
+
+%中文格式设置
+\usepackage[UTF8]{ctex}%有中文时加这一行
+%\usepackage{listings}%贴代码
+
+\usepackage[colorlinks,
+linkcolor=black,
+anchorcolor=black,
+citecolor=black,
+urlcolor=black
+]{hyperref}
+%超链接，参考文献加入目录，颜色为黑色
+
+\usepackage{titletoc}
+\titlecontents{section}[0pt]{\addvspace{1.35pt}\filright\bf}%
+{\contentspush{第\thecontentslabel\ 章\quad}}%
+{}{\titlerule*[12pt]{.}\contentspage}
+
+\usepackage{titlesec}
+%章节设置 不能改中文的第一章
+\titleformat{\section}{\xiaosanhao\centering\heitiB\bfseries}{第\,\thesection\,章}{1em}{}% em表示章到标题间的空格
+\titlespacing*{\section}{0pt}{0pt}{6pt} %段前，段后
+\titleformat{\subsection}{\sihao\heitiB\bfseries}{\thesubsection}{1em}{}% em表示章到标题间的空格
+\titlespacing*{\subsection}{0pt}{0pt}{3pt} %段前，段后，具体数值单位没懂
+
+%自定义字体
+\newcommand{\xiaosanhao}{\fontsize{15pt}{\baselineskip}\selectfont}
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}
+
+
+\DeclareMathAlphabet{\mathsfsl}{OT1}{cmss}{m}{sl}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\me}{\mathrm{e}}
+\newcommand{\mi}{\mathrm{i}}
+\newcommand{\mCov}{\mathrm{Cov}}
+\newcommand{\mVar}{\mathrm{Var}}
+\newcommand{\mVec}[1]{\boldsymbol{#1}}
+\newcommand{\tensor}[1]{\mathsfsl{#1}}
+\newcommand{\nnub}{\nonumber}
+\newtheorem{theorem}{定理}%需要中文环境在这里改就好
+\newtheorem{lemma}{引理}
+\newtheorem{transform}{Transformation}
+\newtheorem{corollary}{Corollary}
+\newtheorem{property}{Property}
+\newtheorem{proposition}{Proposition}
+\newtheorem{definition}{定义}
+%\newtheorem{algorithm}{Algorithm}
+\newtheorem{assumption}{Assumption}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{guideline}{Guideline}
+
+\renewcommand{\contentsname}{目录}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand\refname{参考文献}
+
+
+
+
+%中文字体设置，
+%\usepackage{xeCJK}   %中文字体
+%\setCJKfamilyfont{kaitibold}{Kaiti SC Bold}
+%\newcommand{\kaitiB}{\CJKfamily{kaitibold}}   %楷体加粗
+%\setCJKfamilyfont{heitibold}{Source Han Sans CN}
+\newcommand{\heitiB}{\CJKfamily{heitibold}}   %黑体加粗
+%\setCJKfamilyfont{songtibold}{Songti SC}
+%\newcommand{\songtiB}{\CJKfamily{songtibold}}   %宋体加粗
+
+%\usepackage{ctexcap} %加了会报错
+
+
+\title{制造商面对多个竞争零售商时的预售融资决策}
+\author{黄飞腾}
+\date{} %2020.11
+
+%不包含封面和原创声明
+
+\geometry{a4paper,left=3cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\hypersetup{colorlinks=true,linkcolor=black}%链接颜色
+
+\begin{document}
+\setlength{\baselineskip}{21.06pt} %行距 %1.3*12*1.35
+
+\begin{center}\textbf{\xiaosanhao \heitiB %小三号
+		致\quad 谢
+	}\
+\end{center}
+
+~\\
+\indent
+光阴似箭，日月如梭。
+
+\pagenumbering{roman}
+\setcounter{page}{2} %致谢页页码为 ii。生成pdf后，需要手动把封面和声明（由word模板制作）贴在前面
+
+
+\clearpage
+
+%摘要
+\begin{center}\textbf{\xiaosanhao \heitiB
+		摘\quad 要
+	}
+\end{center}
+
+~\\
+\indent
+
+本研究探讨了一种制造型企业的预售融资策略
+
+
+\noindent \textbf{关键词：}预售，资金约束，配给博弈，斯塔克伯格博弈，供应链协调 
+
+\clearpage
+
+
+
+
+
+\begin{center}\textbf{\xiaosanhao \heitiB
+		ABSTRACT
+	}
+\end{center}
+
+~\\
+\indent
+
+This research explores a pre-sale financing strategy for manufacturing companies
+
+
+\noindent \textbf{KEY WORDS：}Advance Selling, Cash flow constraint , Rationing Game, Stackelberg Game, Supply Chain Coordination
+
+\clearpage
+
+
+\tableofcontents %目录
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}%页码格式
+
+
+\section{绪论}
+\subsection{研究背景与意义}
+生产型企业普遍面临融资决策和风险管理等方面的困难。
+
+%引用：citep是带括号，cite不带
+现有研究表明，零售阶段和批发阶段的预售都可以帮助企业控制风险，提高利润。目前，已有学者研究了预售在零售行业中的应用，并证明在一定的市场条件下，预售可以提升企业利润并降低风险\citep{li_advance_2013}。该类研究主要关注预售在几个方面的作用，包括预测需求，产品效用未知时的决策，划分消费者群体等。\cite{xiao_preselling_2018}研究了在一个资金短缺的制造商与一个零售商的渠道中，考虑制造商在批发阶段的预售时，制造商的生产与融资决策，并证明了预售可以帮助制造商充实现金流，降低风险，提高利润。
+
+
+
+\subsection{研究内容与创新点}
+
+
+主要的研究问题包括：
+\begin{enumerate}
+	\item 考虑零售市场竞争和批发阶段的预售的渠道下
+	\item 第二条
+\end{enumerate}
+
+
+
+
+\subsection{论文框架}
+
+
+\clearpage
+
+\section{文献综述}
+
+
+\subsection{供应链下游竞争的研究}
+
+
+
+\clearpage
+
+\section{研究模型}
+
+%插入图片
+\begin{figure}[h]
+	\centering
+	\caption{事件流程}\label{process} %图表的标题在上方
+	\includegraphics[width=1.00\textwidth]{figure/liucheng.png}
+\end{figure}
+
+\subsection{符号说明}
+
+%插入表格
+\begin{table}[H]
+	\centering
+	\caption{变量说明}
+\begin{tabular}{|c|c|}
+	\hline
+	\multicolumn{2}{|l|}{决策变量}\\\hline %左右加线写在l的两侧
+	$\eta_i$ & 预售折扣率  \\
+	\hline
+	$q_i$ & 预售订单量  \\
+	\hline
+	$p_i$ & 单位零售价  \\
+	\hline
+	$Q$ & 生产量  \\
+	\hline
+	\multicolumn{2}{|l|}{内生变量}\\\hline
+	$d_i$ & 市场需求量，$d=d_1+d_2$  \\
+	\hline
+	$m_i$ & 实际销售量  \\
+	\hline
+	$\pi_m,\pi_i,$ & 制造商/零售商$i$的利润，取所有利润在第二阶段的折现值  \\
+	\hline
+	\multicolumn{2}{|l|}{外生参数}\\\hline
+	$\delta,\beta$ & 存款利率，贷款利率，满足$\beta>\delta$ \\
+	\hline
+	$w,c$ & 单位批发价，单位生产成本 $w>c$ \\
+	\hline
+	$\theta$ & 替代系数，$\theta<1$ \\
+	\hline
+	$\alpha_i$ & 基础市场需求 \\
+	\hline
+\end{tabular}
+\end{table}
+
+
+
+\clearpage
+
+
+\section{分散化模型下的最优决策以及均衡解}
+本章讨论各个条件下的最优决策，给出其解析表达。决策分析中，分析顺序与决策顺序相反，分析后置决策时，假设前置决策已经确定；分析前置决策时，将后置决策的最优解表示为前置决策的函数。
+\subsection{制造商的产量决策$Q$}
+
+\clearpage
+
+\section{研究总结}
+
+\clearpage
+\section{附录}
+
+\subsection{定理\ref{q}的证明}
+
+
+综上，将零售商预售订单量的最优决策汇总为定理\ref{q}。
+
+%\begin{thebibliography}{99}
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{参考文献}
+\tolerance=500
+
+\nocite{*}%添加此处到bib
+\bibliographystyle{apalike}
+\bibliography{myReferences}%需要预先把参考文献制作成bib文件
+
+\end{document}
